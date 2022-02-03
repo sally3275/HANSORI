@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import "../asset/css/slick/slick-theme.css";
+// import "../asset/css/slick/slick-theme.css";
 import "../asset/css/slick/slick.css";
 import "../asset/css/Slide.css";
 
