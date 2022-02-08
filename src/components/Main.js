@@ -9,9 +9,8 @@ import slide1 from "../asset/main/slide1.png";
 import slide3 from "../asset/main/slide3.jpg";
 import whiteArrow from "../asset/main/arrow.png";
 
-// import ReactFullpage from '@fullpage/react-fullpage';
-// import FullCalendar from '@fullcalendar/react';
-// import dayGridPlugin from '@fullcalendar/daygrid';
+import ReactFullpage from "@fullpage/react-fullpage";
+import Test from "./Test";
 
 function Arrow(props) {
   const { onClick, image, next } = props;
@@ -41,147 +40,73 @@ export default class Main extends Component {
     };
 
     return (
-      <Slider {...settings} style={{ backgroundColor: "black" }}>
-        <div style={{ overflow: "hidden" }}>
-          <img
-            src={slide1}
-            style={{
-              width: "100vw",
-              height: "auto",
-              // height: `${
-              //   window.innerHeight > window.innerWidth ? '100vh' : 'auto'
-              // }`,
-              // width: `${
-              //   window.innerHeight > window.innerWidth ? 'auto' : '100vw'
-              // }`,
-            }}
-          />
-          <div className="slide-cover">
-            {window.innerHeight > window.innerWidth ? (
-              // <div className="bounce" style={{ fontSize: '12vw' }}>
-              <div className="fadein" style={{ fontSize: "12vw" }}>
-                동국대학교 <br />
-                공과대 풍물패 <br />
-                한소리
-              </div>
-            ) : (
-              <div className="fadein">동국대학교 공과대 풍물패 한소리</div>
-            )}
+      <ReactFullpage
+        scrollOverflow={true}
+        render={({ state, fullpageApi }) => (
+          <div id="fullpage-wrapper">
+            <div className="section">
+              <Slider {...settings}>
+                <div style={{ overflow: "hidden" }}>
+                  <img
+                    src={slide1}
+                    style={{
+                      height: `${
+                        window.innerHeight > window.innerWidth
+                          ? "100vh"
+                          : "auto"
+                      }`,
+                      width: `${
+                        window.innerHeight > window.innerWidth
+                          ? "auto"
+                          : "100vw"
+                      }`,
+                    }}
+                    alt=""
+                  />
+                  <div className="slide-cover">
+                    {window.innerHeight > window.innerWidth ? (
+                      // <div className="bounce" style={{ fontSize: '12vw' }}>
+                      <div className="fadein" style={{ fontSize: "12vw" }}>
+                        동국대학교 <br />
+                        공과대 풍물패 <br />
+                        한소리
+                      </div>
+                    ) : (
+                      <div className="bounce">
+                        동국대학교 공과대 풍물패 한소리
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <h3>
+                    <img
+                      src={slide3}
+                      style={{
+                        height: `${
+                          window.innerHeight > window.innerWidth
+                            ? "100vh"
+                            : "auto"
+                        }`,
+                        width: `${
+                          window.innerHeight > window.innerWidth
+                            ? "auto"
+                            : "100vw"
+                        }`,
+                      }}
+                      alt=""
+                    />
+                    <div className="slide-cover"></div>
+                  </h3>
+                </div>
+              </Slider>
+            </div>
+            <div className="section">
+              <Test />
+            </div>
           </div>
-        </div>
-
-        <div>
-          <h3>
-            <img
-              src={slide3}
-              style={{
-                width: "100vw",
-                height: "auto",
-              }}
-            />
-            <div className="slide-cover"></div>
-          </h3>
-        </div>
-      </Slider>
-      // <ReactFullpage
-      //   scrollOverflow={true}
-      //   render={({ state, fullpageApi }) => (
-      //     <div id="fullpage-wrapper">
-      //       <div className="section">
-      //         <Slider {...settings}>
-      //           <div style={{ overflow: 'hidden' }}>
-      //             <img
-      //               src={slide1}
-      //               style={{
-      //                 height: `${
-      //                   window.innerHeight > window.innerWidth
-      //                     ? '100vh'
-      //                     : 'auto'
-      //                 }`,
-      //                 width: `${
-      //                   window.innerHeight > window.innerWidth
-      //                     ? 'auto'
-      //                     : '100vw'
-      //                 }`,
-      //               }}
-      //             />
-      //             <div className="slide-cover">
-      //               {window.innerHeight > window.innerWidth ? (
-      //                 // <div className="bounce" style={{ fontSize: '12vw' }}>
-      //                 <div className="fadein" style={{ fontSize: '12vw' }}>
-      //                   동국대학교 <br />
-      //                   공과대 풍물패 <br />
-      //                   한소리
-      //                 </div>
-      //               ) : (
-      //                 <div className="bounce">
-      //                   동국대학교 공과대 풍물패 한소리
-      //                 </div>
-      //               )}
-      //             </div>
-      //           </div>
-      //           <div>
-      //             <h3>
-      //               <img
-      //                 src={slide2}
-      //                 style={{
-      //                   height: `${
-      //                     window.innerHeight > window.innerWidth
-      //                       ? '100vh'
-      //                       : 'auto'
-      //                   }`,
-      //                   width: `${
-      //                     window.innerHeight > window.innerWidth
-      //                       ? 'auto'
-      //                       : '100vw'
-      //                   }`,
-      //                 }}
-      //               />
-      //               <div className="slide-cover"></div>
-      //             </h3>
-      //           </div>
-      //           <div>
-      //             <h3>
-      //               <img
-      //                 src={slide3}
-      //                 style={{
-      //                   height: `${
-      //                     window.innerHeight > window.innerWidth
-      //                       ? '100vh'
-      //                       : 'auto'
-      //                   }`,
-      //                   width: `${
-      //                     window.innerHeight > window.innerWidth
-      //                       ? 'auto'
-      //                       : '100vw'
-      //                   }`,
-      //                 }}
-      //               />
-      //               <div className="slide-cover"></div>
-      //             </h3>
-      //           </div>
-      //         </Slider>
-      //       </div>
-      //       {/* <div className="section " style={{ float: 'left' }}>
-      //         <div>
-      //           <div style={{ height: '8vh' }}></div>
-      //           <FullCalendar
-      //             navLinks="true"
-      //             height="92vh"
-      //             events={[
-      //               {
-      //                 title: '개강',
-      //                 start: '2021-08-30',
-      //               },
-      //             ]}
-      //             defaultView="dayGridMonth"
-      //             plugins={[dayGridPlugin]}
-      //           />
-      //         </div>
-      //       </div> */}
-      //     </div>
-      //   )}
-      // />
+        )}
+      />
     );
   }
 }

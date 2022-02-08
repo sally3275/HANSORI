@@ -8,6 +8,7 @@ import Gallery from "./components/Gallery";
 import Pungsa from "./components/Pungsa";
 import Jokbo from "./components/Jokbo";
 import Profile from "./components/Profile";
+import Test from "./components/Test";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/pungsa" component={Pungsa} />
       <Route path="/jokbo" component={Jokbo} />
       <Route path="/profile" component={Profile} />
+      <Route path="/test" component={Test} />
       <Footer />
     </>
   );

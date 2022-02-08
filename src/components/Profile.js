@@ -1,4 +1,5 @@
 import React from "react";
+import Login from "./Login";
 
 function Profile() {
   return (
@@ -7,6 +8,9 @@ function Profile() {
       style={{ height: "100vh", paddingTop: "50vh", backgroundColor: "black" }}
     >
       페이지 준비중입니다.🐘
+      <br />
+      <br />
+      <Login />
     </div>
   );
 }
