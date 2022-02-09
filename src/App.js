@@ -9,6 +9,8 @@ import Pungsa from "./components/Pungsa";
 import Jokbo from "./components/Jokbo";
 import Profile from "./components/Profile";
 import Test from "./components/Test";
+import Board from "./components/Board";
+import Pungmul from "./components/Pungmul";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <Route path="/jokbo" component={Jokbo} />
       <Route path="/profile" component={Profile} />
       <Route path="/test" component={Test} />
+      <Route path="/board" component={Board} />
+      <Route path="/pungmul" component={Pungmul} />
       <Footer />
     </>
   );
