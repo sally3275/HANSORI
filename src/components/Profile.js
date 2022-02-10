@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { GoogleLogin } from "react-google-login";
-import profile_white from "../asset/header/profile_white.png";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "qwer",
-      name: "asdf",
+      id: "",
+      name: "",
       imageUrl: "",
     };
   }
@@ -23,11 +22,23 @@ class Profile extends Component {
 
     window.localStorage.setItem("imageUrl", this.state.imageUrl);
     window.location.reload();
+
+    this.setState({
+      logged: true,
+    });
+    console.log("로그인");
   };
 
   // Login Fail
   responseFail = (err) => {
     console.error(err);
+  };
+
+  // Logout Func
+  onLogout = () => {
+    console.log("로그아웃");
+    window.localStorage.clear();
+    window.location.reload();
   };
 
   render() {
@@ -40,12 +51,20 @@ class Profile extends Component {
           backgroundColor: "black",
         }}
       >
-        <GoogleLogin
-          clientId="835389304145-pll2ngg9i01e00vajc7svevd555h1g6b.apps.googleusercontent.com"
-          buttonText="Google 로그인"
-          onSuccess={this.responseGoogle}
-          onFailure={this.responseFail}
-        />
+        {window.localStorage.getItem("imageUrl") ? (
+          <GoogleLogout
+            clientId="835389304145-pll2ngg9i01e00vajc7svevd555h1g6b.apps.googleusercontent.com"
+            buttonText="로그아웃"
+            onLogoutSuccess={this.onLogout}
+          ></GoogleLogout>
+        ) : (
+          <GoogleLogin
+            clientId="835389304145-pll2ngg9i01e00vajc7svevd555h1g6b.apps.googleusercontent.com"
+            buttonText="Google 로그인"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseFail}
+          />
+        )}
       </div>
     );
   }
