@@ -74,7 +74,7 @@
 
 @font-face {
   font-family: "NamsanB";
-  src: url("../css/SeoulNamsanB.ttf");
+  src: url("./SeoulNamsanB.ttf");
   font-weight: normal;
   font-style: normal;
 }

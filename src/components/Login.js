@@ -10,7 +10,7 @@ export default function Login({ onGoogleLogin }) {
       googleId,
       profileObj: { email, name },
     } = response;
-
+    console.log("success!!");
     await onGoogleLogin();
   };
 
