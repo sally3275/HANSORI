@@ -17,7 +17,7 @@ const Header = ({ location, match, history }) => {
                 if (location.pathname === "/") window.location.reload();
               }}
             >
-              <img src={logo_white} height="35" />
+              <img src={logo_white} height="35" alt="" />
             </NavLink>
           </div>
           <div className="styled_menu">
@@ -42,7 +42,26 @@ const Header = ({ location, match, history }) => {
           </div>
           <div className="styled_profile">
             <NavLink className="Menu" to="/profile">
-              <img src={profile_white} height="35" />
+              <div style={{ color: "white" }}>
+                {window.localStorage.getItem("imageUrl") == null ? (
+                  <img
+                    className="profile"
+                    src={profile_white}
+                    height="35"
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className="profile"
+                    src={
+                      process.env.PUBLIC_URL +
+                      window.localStorage.getItem("imageUrl")
+                    }
+                    height="35"
+                    alt=""
+                  />
+                )}
+              </div>
             </NavLink>
           </div>
         </div>

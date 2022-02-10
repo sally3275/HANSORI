@@ -100,22 +100,22 @@ export default function Gallery() {
     },
   ];
 
-  // const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
-  // const openModal = () => {
-  //   setModalVisible(true);
-  // };
-  // const closeModal = () => {
-  //   setModalVisible(false);
-  // };
+  const openModal = () => {
+    setModalVisible(true);
+  };
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   return (
     <div className="gallery_background">
       <div className="gallery_header" />
-      {/* <button onClick={openModal}>
+      <button onClick={openModal}>
         <BsPlusSquare className="plus" />
       </button>
-      {modalVisible && (
+      {/* {modalVisible && (
         <UploadImage
           visible={modalVisible}
           closable={true}
